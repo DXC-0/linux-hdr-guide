@@ -54,7 +54,7 @@ hdr-compute-peak=yes
 ```
 
 📌 Ajust the target peak with the maximum luminosity 10% of your screen.
-These settings ensure proper HDR rendering and dynamic peak brightness adjustment.
+These settings ensure proper HDR rendering and dynamic peak brightness adjustment (you can check monitor reference on [TFTcentral](https://tftcentral.co.uk/) or [RTINGS](https://www.rtings.com/monitor)
 </br>
 
 ⚠️ For a total dans transparent intégration in KDE, add on the application this environment variable ```ENABLE_HDR_WSI=1```
@@ -99,6 +99,7 @@ target-colorspace-hint=auto
 gamut-mapping=desaturate
 ```
 
+Replace the target-peak with the maximum peak brigtness of your screen (you can check monitor reference on [TFTcentral](https://tftcentral.co.uk/) or [RTINGS](https://www.rtings.com/monitor)
 ⚠️ For a total dans transparent intégration in KDE, add on the application this environment variable ```ENABLE_HDR_WSI=1``` </br>
 
 </br>
