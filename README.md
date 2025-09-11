@@ -62,7 +62,7 @@ hdr-compute-peak=yes
 These settings ensure proper HDR rendering and dynamic peak brightness adjustment (you can check monitor reference on [TFTcentral](https://tftcentral.co.uk/) or [RTINGS](https://www.rtings.com/monitor) - If the whites are too bright or exaggerated, lower the value until you do not lose in constrast / detail.
 </br>
 
-⚠️ For a total dans transparent intégration in KDE, add on the application this environment variable ```ENABLE_HDR_WSI=1```
+⚠️ For a total dans transparent intégration in KDE, add on the application this environment variable ```ENABLE_HDR_WSI=1``` (also mandatory for Chromium)
 
 </br>
 
