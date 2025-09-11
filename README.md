@@ -30,7 +30,7 @@ You will need the following tools installed on you distribution to get HDR worki
 
 HDR streaming is possible on Linux, but the features are still limited and require a carefully configured setup. The most reliable experience currently comes from using **MPV** under **KDE Plasma 6.4+** with proper GPU support. <br>
 <br>
-Required components are : [KDE]((https://kde.org/plasma-desktop/), [Vk-Hdr-Layer](https://github.com/Zamundaaa/VK_hdr_layer), [Chromium](https://github.com/chromium/chromium) and [mpv](https://mpv.io/)
+Required components are : [KDE](https://kde.org/plasma-desktop/), [Vk-Hdr-Layer](https://github.com/Zamundaaa/VK_hdr_layer), [Chromium](https://github.com/chromium/chromium) and [mpv](https://mpv.io/)
 
 #### ➡️ Option 1: Streaming via Chromium (Limited HDR)
 
