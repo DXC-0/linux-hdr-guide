@@ -43,8 +43,6 @@ chromium --enable-features=UseHDRTransferFunction,UseSkiaRenderer \
 ```
 You can also permanently enable HDR in Chromium in the flags. Search for HDR and enable the experimental feature. (you will need to restart the browser)
 
-<br>
-
 
 [![Chrome.png](https://i.postimg.cc/bvVj73Pf/Chrome.png)](https://postimg.cc/949STPzL)
 
