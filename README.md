@@ -100,6 +100,11 @@ gamut-mapping=desaturate
 ```
 
 Replace the target-peak with the maximum peak brigtness of your screen (you can check monitor reference on [TFTcentral](https://tftcentral.co.uk/) or [RTINGS](https://www.rtings.com/monitor)
+
+
+</br>
+
+
 ⚠️ For a total dans transparent intégration in KDE, add on the application this environment variable ```ENABLE_HDR_WSI=1``` </br>
 
 </br>
