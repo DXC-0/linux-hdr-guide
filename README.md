@@ -41,7 +41,7 @@ chromium --enable-features=UseHDRTransferFunction,UseSkiaRenderer \
          --use-gl=egl --ozone-platform=wayland
 
 ```
-You can also permanently enable HDR in Chromium in the flags. Search for HDR and enable the experimental feature. (you will need to restart the browser) </br>
+You can also permanently enable HDR in Chromium in the flags. Search for HDR and enable the experimental feature. (you will need to restart the browser) - 
 Add this environment variable ```ENABLE_HDR_WSI=1```
 
 
