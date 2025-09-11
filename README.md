@@ -4,11 +4,11 @@
 
 ### 📘 Linux HDR Guide
 
-- [Preparation]()
-- [HDR Video Streaming](#4-hdr-in-video-streaming)
-- [AutoHDR for MPV (RTX Video HDR Equivalent)](#5-autohdr-for-mpv-rtx-video-hdr-equivalent)
-- [HDR in Video Games with ProtonGE](#6-hdr-in-video-games-with-proton)
-- [AutoHDR with Reshade and Proton](#7-auto-hdr-with-reshade-and-proton)
+- [Preparation](https://github.com/DXC-0/Linux-HDR-Guide?tab=readme-ov-file#-preparation)
+- [HDR Video Streaming](https://github.com/DXC-0/Linux-HDR-Guide?tab=readme-ov-file#-hdr-video-streaming-on-linux)
+- [AutoHDR for MPV (RTX Video HDR Equivalent)](https://github.com/DXC-0/Linux-HDR-Guide?tab=readme-ov-file#-autohdr-for-mpv-rtx-video-hdr-equivalent)
+- [HDR in Video Games with ProtonGE](https://github.com/DXC-0/Linux-HDR-Guide?tab=readme-ov-file#-hdr-supported-games)
+- [AutoHDR with Reshade and Proton](https://github.com/DXC-0/Linux-HDR-Guide?tab=readme-ov-file#-auto-hdr-in-sdr-games)
 
 ---
 
