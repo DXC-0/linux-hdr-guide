@@ -46,8 +46,6 @@ You can also permanently enable HDR in Chromium in the flags. Search for HDR and
 
 [![Chrome.png](https://i.postimg.cc/bvVj73Pf/Chrome.png)](https://postimg.cc/949STPzL)
 
-<br>
-
 
 #### ➡️ Option 2: Streaming via MPV (Recommended)
 
