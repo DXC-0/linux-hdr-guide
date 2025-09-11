@@ -30,7 +30,7 @@ You will need the following tools installed on you distribution to get HDR worki
 
 HDR streaming is possible on Linux, but the features are still limited and require a carefully configured setup. The most reliable experience currently comes from using **MPV** under **KDE Plasma 6.4+** with proper GPU support. <br>
 <br>
-Required components are : KDE, Vk-Hdr-Layer, Chromium and mpv
+Required components are : [KDE]((https://kde.org/plasma-desktop/), [Vk-Hdr-Layer](https://github.com/Zamundaaa/VK_hdr_layer), [Chromium](https://github.com/chromium/chromium) and [mpv](https://mpv.io/)
 
 #### ➡️ Option 1: Streaming via Chromium (Limited HDR)
 
@@ -80,7 +80,7 @@ These settings ensure proper HDR rendering and dynamic peak brightness adjustmen
 
 AutoHDR is a technology that automatically converts SDR (Standard Dynamic Range) content into HDR (High Dynamic Range), enhancing brightness, contrast, and color for a more vivid display. Reverse tonemapping works by reconstructing HDR-like details from SDR images, essentially estimating and restoring highlights and dynamic range that were previously compressed. Together, they allow older or non-HDR visuals to look more vibrant and immersive on modern screens.
 
-With MPV you can get HDR rendering from SDR videos. It's quite similar to what Nvidia offers on Windows with its RTX Video HDR. Of course, the result isn't as good as native HDR, but it will greatly enhance your videos in terms of contrast and brightness.
+With MPV you can get HDR rendering from SDR videos. It's quite similar to what Nvidia offers on Windows with its [RTX Video HDR](https://blogs.nvidia.com/blog/rtx-video-hdr-remix-studio-driver/). Of course, the result isn't as good as native HDR, but it will greatly enhance your videos in terms of contrast and brightness.
 
 📌 To enable Auto-HDR in MPV, edit your `mpv.conf`
 
