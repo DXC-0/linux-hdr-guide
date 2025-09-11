@@ -223,5 +223,6 @@ Press the **"Home"** key to open reshade, renodx is present in the addon section
 | [renoDX](https://github.com/clshortfuse/renodx) | Special Thanks to the renodx team, having done incredible job for HDR 🙏 |
 | [HDR-Addon](https://github.com/EndlesslyFlowering/AutoHDR-ReShade) | Lilium, for this addon, improved version of AutoHDR |
 | [VK_hdr_layer](https://github.com/Zamundaaa/VK_hdr_layer) | Thank Zamundaaa, for the incredible work on the HDR Vulkan compatibility layer for kwin |
+| [ProtonGE](https://github.com/GloriousEggroll/proton-ge-custom) | Better Proton with full wayland HDR support |
 
 
