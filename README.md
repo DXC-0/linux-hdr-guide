@@ -41,6 +41,15 @@ chromium --enable-features=UseHDRTransferFunction,UseSkiaRenderer \
          --use-gl=egl --ozone-platform=wayland
 
 ```
+You can also permanently enable HDR in Chromium in the flags. Search for HDR and enable the experimental feature. (you will need to restart the browser)
+
+<br>
+
+
+[![Chrome.png](https://i.postimg.cc/bvVj73Pf/Chrome.png)](https://postimg.cc/949STPzL)
+
+<br>
+
 
 #### ➡️ Option 2: Streaming via MPV (Recommended)
 
