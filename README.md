@@ -180,7 +180,7 @@ Download reshade with full add-on support [here](https://reshade.me/downloads/Re
 [![HDRLAUNCHOPTION.png](https://i.postimg.cc/SNpXbkbm/HDRLAUNCHOPTION.png)](https://postimg.cc/grNcv907)
 
 
-➡️ In the game press **"Home"** keyboard key to open reshade.
+➡️ In the game press **"Home"** keyboard key to open reshade. If `AdvancedAutoHDR.fx` failed to compile, use `protontricks` to install `d3dcompiler` into the games prefix.
 
 ➡️ Go the the **addon** section : 
 
