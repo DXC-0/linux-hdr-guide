@@ -1,6 +1,3 @@
-
----
-
 ### 📘 Linux HDR Guide
 
 - [Preparation](https://github.com/DXC-0/Linux-HDR-Guide?tab=readme-ov-file#-preparation)
@@ -37,9 +34,8 @@ If your distribution's driver version is below the requirements above, you must 
 
 | Driver Version | Native HDR | VK_HDR_LAYER Required? | Notes |
 |---|---|---|---|
-| < 535 | No | Required | No native HDR support |
-| 535–579 | Partial | Recommended | Workaround generally required |
-| 580–589 | Partial | Recommended | `VK_EXT_hdr_metadata` support added, but native HDR support is still incomplete |
+| 535–579 | Partial | Required | Workaround generally required |
+| 580–589 | Partial | Required | `VK_EXT_hdr_metadata` support added, but native HDR support is still incomplete |
 | 590–594 | Partial / Good | Optional / Recommended | HDR support improved, but the native path is not yet fully reliable |
 | 595+ | Good | Not needed | Native Vulkan HDR extensions available; `VK_HDR_LAYER` is no longer required |
 | 610+ (Current) | Complete | Not needed | DRM Color Pipeline API and further Wayland improvements |
@@ -48,9 +44,8 @@ If your distribution's driver version is below the requirements above, you must 
 
 | Mesa Version | Native HDR | VK_HDR_LAYER Required? | Notes |
 |---|---|---|---|
-| < 24.0 | No | Required | No integrated Wayland HDR support |
-| 24.x | Experimental | Recommended | Integration in progress |
-| 25.0 | Partial | Variable | Early native support |
+| 24.x | Experimental | Required | Integration in progress |
+| 25.0 | Partial | Required | Early native support |
 | 25.1+ | Integrated | Not needed | Wayland color-management support integrated into Mesa |
 | 26.0+ (Current) | Complete | Obsolete | `VK_HDR_LAYER` is no longer needed with the native Mesa path |
 
