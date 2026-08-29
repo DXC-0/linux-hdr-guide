@@ -34,9 +34,8 @@ If your distribution's driver version is below the requirements above, you must 
 
 | Driver Version | Native HDR | VK_HDR_LAYER Required? | Notes |
 |---|---|---|---|
-| 535–579 | Partial | Required | Workaround generally required |
 | 580–589 | Partial | Required | `VK_EXT_hdr_metadata` support added, but native HDR support is still incomplete |
-| 590–594 | Partial / Good | Optional / Recommended | HDR support improved, but the native path is not yet fully reliable |
+| 590–594 | Partial / Good | Required | HDR support improved, but the native path is not yet fully reliable |
 | 595+ | Good | Not needed | Native Vulkan HDR extensions available; `VK_HDR_LAYER` is no longer required |
 | 610+ (Current) | Complete | Not needed | DRM Color Pipeline API and further Wayland improvements |
 
