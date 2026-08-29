@@ -20,6 +20,7 @@ You will need the following tools installed on you distribution to get HDR worki
 
 ➡️ Make sure you have the latest [Nvidia-Open](https://github.com/NVIDIA/open-gpu-kernel-modules) drivers or the most recent [Mesa](https://mesa3d.org/) version. Properly install the codecs and prerequisites according to your distribution.
 
+---
 
 ### 📦 Vulkan HDR Layer Requirements
 
@@ -29,25 +30,6 @@ If your distribution's driver version is below the requirements above, you must 
 |-----|-------------------------------|
 | **NVIDIA** | 610.43.02+ |
 | **AMD** | Mesa 25.1+ |
-
-### 🟢 NVIDIA (Proprietary)
-
-| Driver Version | Native HDR | VK_HDR_LAYER Required? | Notes |
-|---|---|---|---|
-| 580–589 | Partial | Required | `VK_EXT_hdr_metadata` support added, but native HDR support is still incomplete |
-| 590–594 | Partial / Good | Required | HDR support improved, but the native path is not yet fully reliable |
-| 595+ | Good | Not needed | Native Vulkan HDR extensions available; `VK_HDR_LAYER` is no longer required |
-| 610+ (Current) | Complete | Not needed | DRM Color Pipeline API and further Wayland improvements |
-
-### 🔴 AMD (Mesa/RADV)
-
-| Mesa Version | Native HDR | VK_HDR_LAYER Required? | Notes |
-|---|---|---|---|
-| 24.x | Experimental | Required | Integration in progress |
-| 25.0 | Partial | Required | Early native support |
-| 25.1+ | Integrated | Not needed | Wayland color-management support integrated into Mesa |
-| 26.0+ (Current) | Complete | Obsolete | `VK_HDR_LAYER` is no longer needed with the native Mesa path |
-
 
 ### Verification Commands
 
