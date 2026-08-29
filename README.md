@@ -1,4 +1,3 @@
-[![image.png](https://i.postimg.cc/t44Ft80x/image.png)](https://postimg.cc/vcC1GqZY)
 
 ---
 
@@ -7,7 +6,7 @@
 - [Preparation](https://github.com/DXC-0/Linux-HDR-Guide?tab=readme-ov-file#-preparation)
 - [HDR Video Streaming](https://github.com/DXC-0/Linux-HDR-Guide?tab=readme-ov-file#-hdr-video-streaming-on-linux)
 - [AutoHDR for MPV (RTX Video HDR Equivalent)](https://github.com/DXC-0/Linux-HDR-Guide?tab=readme-ov-file#-autohdr-for-mpv-rtx-video-hdr-equivalent)
-- [HDR in Video Games with ProtonGE](https://github.com/DXC-0/Linux-HDR-Guide?tab=readme-ov-file#-hdr-supported-games)
+- [HDR in Video Games with Proton](https://github.com/DXC-0/Linux-HDR-Guide?tab=readme-ov-file#-hdr-supported-games)
 - [AutoHDR with Reshade and Proton](https://github.com/DXC-0/Linux-HDR-Guide?tab=readme-ov-file#-auto-hdr-in-sdr-games)
 
 ---
@@ -16,21 +15,63 @@
 
 You will need the following tools installed on you distribution to get HDR working on Linux:
 
-- [KDE Plasma (6.4)](https://kde.org/plasma-desktop/)
-- [Vk-Hdr-Layer](https://github.com/Zamundaaa/VK_hdr_layer)
-- [ProtonGE (10-15)](https://github.com/GloriousEggroll/proton-ge-custom)
+- [KDE Plasma ( > 6.4)](https://kde.org/plasma-desktop/)
+- [Vk-Hdr-Layer](https://github.com/Zamundaaa/VK_hdr_layer) (check the vulkan layer part)
+- [ProtonGE](https://github.com/GloriousEggroll/proton-ge-custom) or [ProtonCachy](https://github.com/CachyOS/proton-cachyos)
+- [Chromium based browser](https://github.com/chromium/chromium)
 - [MPV](https://mpv.io/)
-- [Chromium](https://github.com/chromium/chromium)
 
 ➡️ Make sure you have the latest [Nvidia-Open](https://github.com/NVIDIA/open-gpu-kernel-modules) drivers or the most recent [Mesa](https://mesa3d.org/) version. Properly install the codecs and prerequisites according to your distribution.
 
+
+### 📦 Vulkan HDR Layer Requirements
+
+If your distribution's driver version is below the requirements above, you must install `VK_HDR_LAYER` and set `ENABLE_HDR_WSI=1` (per-application or globally for your desktop environment) to enable HDR support.
+
+| GPU | Version to Remove VK_HDR_LAYER |
+|-----|-------------------------------|
+| **NVIDIA** | 610.43.02+ |
+| **AMD** | Mesa 25.1+ |
+
+### 🟢 NVIDIA (Proprietary)
+
+| Driver Version | Native HDR | VK_HDR_LAYER Required? | Notes |
+|---|---|---|---|
+| < 535 | No | Required | No native HDR support |
+| 535–579 | Partial | Recommended | Workaround generally required |
+| 580–589 | Partial | Recommended | `VK_EXT_hdr_metadata` support added, but native HDR support is still incomplete |
+| 590–594 | Partial / Good | Optional / Recommended | HDR support improved, but the native path is not yet fully reliable |
+| 595+ | Good | Not needed | Native Vulkan HDR extensions available; `VK_HDR_LAYER` is no longer required |
+| 610+ (Current) | Complete | Not needed | DRM Color Pipeline API and further Wayland improvements |
+
+### 🔴 AMD (Mesa/RADV)
+
+| Mesa Version | Native HDR | VK_HDR_LAYER Required? | Notes |
+|---|---|---|---|
+| < 24.0 | No | Required | No integrated Wayland HDR support |
+| 24.x | Experimental | Recommended | Integration in progress |
+| 25.0 | Partial | Variable | Early native support |
+| 25.1+ | Integrated | Not needed | Wayland color-management support integrated into Mesa |
+| 26.0+ (Current) | Complete | Obsolete | `VK_HDR_LAYER` is no longer needed with the native Mesa path |
+
+
+### Verification Commands
+
+```bash
+nvidia-smi | grep "Driver Version" #Nvidia
+glxinfo | grep "OpenGL version" #AMD
+
+vulkaninfo | grep -E "swapchain_colorspace|hdr_metadata"
+
+ls /usr/share/vulkan/implicit_layer.d/
+```
 ---
 
 ### 🎬 HDR Video Streaming on Linux
 
 HDR streaming is possible on Linux, but the features are still limited and require a carefully configured setup. The most reliable experience currently comes from using **MPV** under **KDE Plasma 6.4+** with proper GPU support. <br>
 <br>
-Required components are : [KDE](https://kde.org/plasma-desktop/), [Vk-Hdr-Layer](https://github.com/Zamundaaa/VK_hdr_layer), [Chromium](https://github.com/chromium/chromium) and [mpv](https://mpv.io/)
+Required components are : [KDE](https://kde.org/plasma-desktop/), [Chromium](https://github.com/chromium/chromium) and [mpv](https://mpv.io/)
 
 #### ➡️ Option 1: Streaming via Chromium (Limited HDR)
 
@@ -41,8 +82,10 @@ chromium --enable-features=UseHDRTransferFunction,UseSkiaRenderer \
          --use-gl=egl --ozone-platform=wayland
 
 ```
-You can also permanently enable HDR in Chromium in the flags. Search for HDR and enable the experimental feature. (you will need to restart the browser) - 
-Also add this environment variable ```ENABLE_HDR_WSI=1``` in KDE application parameter.
+You can also permanently enable HDR in Chromium in the flags. Search for HDR and enable the experimental feature. (you will need to restart the browser)
+</br>
+
+⚠️ **Depending on your case:** Add or omit the `ENABLE_HDR_WSI=1` environment variable.
 
 
 [![Chrome.png](https://i.postimg.cc/bvVj73Pf/Chrome.png)](https://postimg.cc/949STPzL)
@@ -63,7 +106,7 @@ hdr-compute-peak=yes
 These settings ensure proper HDR rendering and dynamic peak brightness adjustment (you can check monitor reference on [TFTcentral](https://tftcentral.co.uk/) or [RTINGS](https://www.rtings.com/monitor) - If the whites are too bright or exaggerated, lower the value until you do not lose in constrast / detail.
 </br>
 
-⚠️ For a total dans transparent intégration in KDE, add on the application this environment variable ```ENABLE_HDR_WSI=1```
+⚠️ **Depending on your case:** Add or omit the `ENABLE_HDR_WSI=1` environment variable.
 
 </br>
 
@@ -111,7 +154,7 @@ Replace the target-peak with the maximum peak brigtness of your screen (you can 
 </br>
 
 
-⚠️ For a total dans transparent intégration in KDE, add on the application this environment variable ```ENABLE_HDR_WSI=1``` </br>
+⚠️ **Depending on your case:** Add or omit the `ENABLE_HDR_WSI=1` environment variable.</br>
 
 </br>
 
@@ -127,18 +170,21 @@ Here is an example comparing an SDR video and one with auto-HDR (Auto-HDR on the
 
 ### 🎮 HDR supported games:
 
-To launch a game with HDR, select protonGE in the compatibility options : 
+To launch a game with HDR, select protonGE or ProtonCachy in the compatibility options : 
 
 [![protonge.png](https://i.postimg.cc/Qx3Sdbcc/protonge.png)](https://postimg.cc/mhm7d7Xr)
 
-Paste this on steam launch options : 
+Paste this on steam launch options :
 
-``` PROTON_ENABLE_WAYLAND=1 PROTON_ENABLE_HDR=1 DXVK_HDR=1 ENABLE_HDR_WSI=1 %command%```
+ - Proton-Cachy : ``` PROTON_ENABLE_WAYLAND=1 PROTON_ENABLE_HDR=1 DXVK_HDR=1 %command%```
+
+ - ProtonGE : ``` PROTON_ENABLE_WAYLAND=1 PROTON_ENABLE_HDR=1 %command%```
+
+- Full (+vklayer) : ``` PROTON_ENABLE_WAYLAND=1 PROTON_ENABLE_HDR=1 DXVK_HDR=1 ENABLE_HDR_WSI=1 %command%```
 
 </br>
 
-When you are in a game, check in the options if the **HDR is available** and activate it.
-
+When you are in a game, check in the options if the **HDR is available** and activate it.  
 Remember to adjust your gamma to avoid an overly denatured image.
 
 </br>
@@ -179,6 +225,15 @@ Download reshade with full add-on support [here](https://reshade.me/downloads/Re
 
 [![HDRLAUNCHOPTION.png](https://i.postimg.cc/SNpXbkbm/HDRLAUNCHOPTION.png)](https://postimg.cc/grNcv907)
 
+Launch options :
+
+ - Proton-Cachy : ``` PROTON_ENABLE_WAYLAND=1 PROTON_ENABLE_HDR=1 DXVK_HDR=1 %command%```
+
+ - ProtonGE : ``` PROTON_ENABLE_WAYLAND=1 PROTON_ENABLE_HDR=1 %command%```
+
+- Full (+vklayer) : ``` PROTON_ENABLE_WAYLAND=1 PROTON_ENABLE_HDR=1 DXVK_HDR=1 ENABLE_HDR_WSI=1 %command%```
+
+</br>
 
 ➡️ In the game press **"Home"** keyboard key to open reshade. If `AdvancedAutoHDR.fx` failed to compile, use `protontricks` to install `d3dcompiler` into the games prefix.
 
@@ -236,5 +291,6 @@ Press the **"Home"** key to open reshade, renodx is present in the addon section
 | [HDR-Addon](https://github.com/EndlesslyFlowering/AutoHDR-ReShade) | Lilium, for this addon, improved version of AutoHDR |
 | [VK_hdr_layer](https://github.com/Zamundaaa/VK_hdr_layer) | Thank Zamundaaa, for the incredible work on the HDR Vulkan compatibility layer for kwin |
 | [ProtonGE](https://github.com/GloriousEggroll/proton-ge-custom) | Better Proton with full wayland HDR support |
+| [proton-cachyos](https://github.com/CachyOS/proton-cachyos) | Proton, supercharged with patches for full Wayland HDR support |
 
 
